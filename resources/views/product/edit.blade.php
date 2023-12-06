@@ -18,6 +18,16 @@
         </div>
         <div class="row">
             <div class="col mb-3">
+                <label class="form-label">No Telpon</label>
+                <input type="text" name="noTelp" class="form-control" placeholder="No Telpon" value="{{ $product->noTelp }}" >
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">Luas Tanah</label>
+                <input type="text" name="luasTanah" class="form-control" placeholder="Luas Tanah" value="{{ $product->luasTanah }}" >
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
                 <label class="form-label">Product Code</label>
                 <input type="text" name="product_code" class="form-control" placeholder="Product Code" value="{{ $product->product_code }}" >
             </div>
