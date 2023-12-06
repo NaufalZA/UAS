@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Pemilik</label>
-                <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $product->title }}" >
+                <input type="text" name="pemilik" class="form-control" placeholder="Pemilik" value="{{ $product->pemilik }}" >
             </div>
             <div class="col mb-3">
                 <label class="form-label">Price</label>
