@@ -16,21 +16,21 @@
     <div class="row">
         <div class="col mb-3">
             <label class="form-label">Luas Tanah</label>
-            <input type="text" name="luas tanah" class="form-control" placeholder="Luas Tanah" value="{{ $product->pemilik }}" readonly>
+            <input type="text" name="luasTanah" class="form-control" placeholder="Luas Tanah" value="{{ $product->luasTanah }}" readonly>
         </div>
         <div class="col mb-3">
-            <label class="form-label">Alamat</label>
-            <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="{{ $product->alamat }}" readonly>
+            <label class="form-label">Luas Bangunan</label>
+            <input type="text" name="luasBangunan" class="form-control" placeholder="Luas Bangunan" value="{{ $product->uasBangunan }}" readonly>
         </div>
     </div>
     <div class="row">
         <div class="col mb-3">
-            <label class="form-label">noTelp</label>
-            <input type="text" name="noTelp" class="form-control" placeholder="No Telpon" value="{{ $product->noTelp }}" readonly>
+            <label class="form-label">Harga</label>
+            <input type="text" name="harga" class="form-control" placeholder="Harga" value="{{ $product->harga }}" readonly>
         </div>
         <div class="col mb-3">
-            <label class="form-label">Description</label>
-            <textarea class="form-control" name="description" placeholder="Descriptoin" readonly>{{ $product->description }}</textarea>
+            <label class="form-label">Deskripsi</label>
+            <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" readonly>{{ $product->deskripsi }}</textarea>
         </div>
     </div>
     <div class="row">
