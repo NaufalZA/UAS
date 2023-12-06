@@ -12,8 +12,8 @@
                 <input type="text" name="pemilik" class="form-control" placeholder="Pemilik" value="{{ $product->pemilik }}" >
             </div>
             <div class="col mb-3">
-                <label class="form-label">Price</label>
-                <input type="text" name="price" class="form-control" placeholder="Price" value="{{ $product->price }}" >
+                <label class="form-label">Alamat</label>
+                <input type="text" name="alamat" class="form-control" placeholder="Alamat" value="{{ $product->alamat }}" >
             </div>
         </div>
         <div class="row">
