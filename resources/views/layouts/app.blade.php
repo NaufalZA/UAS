@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | User Profile</title>
+  <title>Rumah | User Profile</title>
  
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,10 +22,10 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="../../index3.html" class="nav-link">Beranda</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('logout') }}" class="nav-link">Log Out</a>
+        <a href="{{ route('logout') }}" class="nav-link">Keluar</a>
       </li>
     </ul>
   </nav>
@@ -35,8 +35,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
-      <img src="../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+      <!-- <img src="../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Rumah</span> -->
     </a>
  
     <!-- Sidebar -->
@@ -78,37 +78,37 @@
               <li class="nav-item">
                 <a href="{{ route('product.index') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product</p>
+                  <p>Rumah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.create') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Product</p>
+                  <p>Tambahkan rumah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.my') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>My Product</p>
+                  <p>Jualan saya</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('profile.purchase') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Purchase</p>
+                  <p>Pembelian</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('profile.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
+                  <p>Profil</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Logout</p>
+                  <p>Keluar</p>
                 </a>
               </li>
             </ul>
@@ -140,7 +140,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
-    <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <!-- <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved. -->
   </footer>
  
   <!-- Control Sidebar -->
@@ -158,6 +158,6 @@
 <!-- AdminLTE App -->
 <script src="../assets/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../assets/js/demo.js"></script>
+<!-- <script src="../assets/js/demo.js"></script> -->
 </body>
 </html>
