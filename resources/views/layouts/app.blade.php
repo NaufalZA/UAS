@@ -70,7 +70,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Pages
+                Halaman
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -78,19 +78,19 @@
               <li class="nav-item">
                 <a href="{{ route('product.index') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Product</p>
+                  <p>Rumah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.create') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Product</p>
+                  <p>Tambah Rumah</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('product.my') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>My Product</p>
+                  <p>Rumah Saya</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -102,7 +102,7 @@
               <li class="nav-item">
                 <a href="{{ route('profile.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
+                  <p>Profil</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -136,12 +136,12 @@
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <!-- <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
     <strong>Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  </footer> -->
  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
