@@ -76,11 +76,16 @@
           </div>
           <!-- /.col -->
         </div>
-      <p class="mb-0">
+      <style>
+      .small-text {
+        font-size: 0.8em; /* adjust this value as needed */
+      }
+      </style>
+
+      <p class="mb-0 mt-3 text-center small-text">
         <!-- <a href="{{ route('register') }}" class="text-center">Daftar Gratis</a> -->
-        Belum punya akun? <a href="{{ route('register') }}" class="text-center">Daftar Gratis</a>
+        Belum punya akun? <a href="{{ route('register') }}">Daftar Gratis</a>
       </p>
-    </div>
     <!-- /.login-card-body -->
   </div>
 </div>
