@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Registration Page</title>
+  <title>RumahMurah | Daftar</title>
  
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,12 +17,12 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>Admin</b>LTE</a>
+    <a href="../../index2.html"><b>Rumah</b>Murah</a>
   </div>
  
   <div class="card">
     <div class="card-body register-card-body">
-      <p class="login-box-msg">Register a new membership</p>
+      <p class="login-box-msg">Daftar Akun</p>
       @if(session('error'))
               <div class="alert alert-danger text-light text-center m-2" role="alert">
                 {{ session('error') }}
@@ -64,36 +64,23 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               I agree to the <a href="#">terms</a>
-              </label>
+          <div class="row">
+            <div class="col-5 mx-auto">
+              <button type="submit" class="btn btn-primary btn-block">Register</button>
             </div>
+            <!-- /.col -->
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
- 
-      <div class="social-auth-links text-center">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-          Sign up using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Sign up using Google+
-        </a>
-      </div>
- 
-      <a href="{{ route('login') }}" class="text-center">I already have a membership</a>
+        </form>
+
+        <style>
+        .small-text {
+          font-size: 0.9em; /* adjust this value as needed */
+        }
+        </style>
+
+        <p class="mb-0 mt-2 text-center small-text">
+          Sudah Punya Akun? <a href="{{ route('login') }}" class="text-center">Masuk</a>
+        </p>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

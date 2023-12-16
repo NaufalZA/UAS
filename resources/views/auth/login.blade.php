@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RumahMurah | Log in</title>
+  <title>RumahMurah | Login</title>
  
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -82,9 +82,8 @@
       }
       </style>
 
-      <p class="mb-0 mt-3 text-center small-text">
-        <!-- <a href="{{ route('register') }}" class="text-center">Daftar Gratis</a> -->
-        Belum punya akun? <a href="{{ route('register') }}">Daftar Gratis</a>
+      <p class="mb-0 mt-2 text-center small-text">
+        Belum punya akun? <a href="{{ route('register') }}">Daftar</a>
       </p>
     <!-- /.login-card-body -->
   </div>
