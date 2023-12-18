@@ -35,7 +35,7 @@
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
                       <h5 class="font-weight-bolder mb-0">
-                        ${{ number_format($product->price, 0, '.', '.') }}
+                        Rp. {{ number_format($product->price, 0, '.', '.') }}
                       </h5>
                       <small>{{ $product->description }}</small>
                     </div>
