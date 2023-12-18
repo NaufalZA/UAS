@@ -60,7 +60,7 @@
         </script>
 
         <div class="info">
-          <a href="#" class="d-block user-name">{{ Auth::user()->name }}</a>
+          <a href="{{ route('profile.index') }}" class="d-block user-name">{{ Auth::user()->name }}</a>
         </div>
       </div>
  
