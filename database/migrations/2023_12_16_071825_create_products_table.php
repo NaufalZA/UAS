@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('pemilik');
-            $table->string('alamat');
-            $table->string('noTelp');
-            $table->integer('luasTanah');
-            $table->integer('luasBangunan');
-            $table->integer('harga');
-            $table->text('deskripsi');
-            $table->enum('status', ['Dijual', 'Terjual']);
+            $table->string('name');
+            $table->string('image');
+            $table->text('description');
+            $table->bigInteger('price');
+            $table->boolean('sold')->default(false);
+            $table->bigInteger('user_id');
             $table->timestamps();
         });
     }

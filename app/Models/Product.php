@@ -1,23 +1,17 @@
 <?php
-
+ 
 namespace App\Models;
-
+ 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+ 
 class Product extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'pemilik',
-        'alamat',
-        'noTelp',
-        'luasTanah',
-        'luasBangunan',
-        'harga',
-        'deskripsi',
-        'status',
-        
-    ];
+ 
+    protected $fillable = ['name', 'image', 'description', 'price', 'sold', 'user_id'];
+ 
+    public function seller(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

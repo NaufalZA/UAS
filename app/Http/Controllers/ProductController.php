@@ -4,78 +4,70 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductSold;
+use Illuminate\Support\Facades\Auth;
  
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        $product = Product::orderBy('created_at', 'DESC')->get();
+    public function index(Request $request){
+        $products = Product::orderBy('sold', 'ASC');
+        if($request->sort == 'asc'){
+            $products =  $products->orderBy('name', 'ASC')->get();
+        }else if($request->sort == 'desc'){
+            $products =  $products->orderBy('name', 'DESC')->get();
+        }else{
+            $products =  $products->orderBy('created_at', 'DESC')->orderBy('updated_at', 'DESC')->get();
+        }
  
-        return view('product.index', compact('product'));
+        return view('pages.products', compact('products'));
     }
  
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('product.create');
+    public function create(){
+        return view('pages.create');
     }
  
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        Product::create($request->all());
+    public function store(Request $request){
+        if($request->price < 1){
+            return back()->with('error', 'Minimum price is $. 1');
+        }
+         
+        $file = $request->file('image');
+        $fileName = 'product_' . time() . '.' . $file->extension();
+        $file->move(public_path('assets/img'), $fileName);
  
-        return redirect()->route('product.index')->with('Sukses', 'Rumah berhasil ditambahkan');
+        Product::create([
+            'name' => $request->name,
+            'image' => $fileName,
+            'description' => $request->description,
+            'price' => $request->price,
+            'sold' => "0",
+            'user_id' => Auth::user()->id,
+        ]);
+ 
+        return back()->with('success', 'Congratulations, your product has been successfully created. Wait until your product is sold');
     }
  
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
+    public function buy($id){
         $product = Product::findOrFail($id);
  
-        return view('product.show', compact('product'));
+        if($product->user_id == Auth::user()->id){
+            return back()->with('error', "Purchase failed, you can't buy your own product");
+        }
+ 
+        ProductSold::create([
+            'product_id' => $product->id,
+            'buyer_id' => Auth::user()->id,
+        ]);
+ 
+        $product->update([
+            'sold' => true,
+        ]);
+ 
+        return back()->with('success', 'Congratulations, the product has been purchased successfully');
     }
- 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        return view('product.edit', compact('product'));
-    }
- 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        $product->update($request->all());
- 
-        return redirect()->route('product.index')->with('Sukses', 'Rumah berhasil diupdate');
-    }
- 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        $product = Product::findOrFail($id);
- 
-        $product->delete();
- 
-        return redirect()->route('product.index')->with('Sukses', 'Rumah berhasil didelete');
+     
+    public function my(){
+        $products = Product::where('user_id', Auth::user()->id)->orderBy('sold', 'asc')->get();
+        return view('pages.my', compact('products'));
     }
 }
