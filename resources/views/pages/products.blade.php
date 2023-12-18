@@ -53,7 +53,9 @@
                         <h5 class="font-weight-bolder mb-0">
                             Rp. {{ number_format($product->price, 0, '.', '.') }}
                         </h5>
-                        <small>{{ $product->description }}</small>
+                        <!-- <small>{{ $product->description }}</small> -->
+                        <!-- <small>{{ nl2br(e($product->description)) }}</small> -->
+                        <small>{!! nl2br(e($product->description)) !!}</small>
                         </div>
                     </div>
                     <div class="col-4 text-end">
@@ -72,7 +74,7 @@
             <div class="col-12">
             <div class="card">
                 <div class="card-body text-center p-3">
-                <h4>Product Not Available</h4>
+                <h4>Rumah Tidak Tersedia</h4>
                 </div>
             </div>
             </div>
