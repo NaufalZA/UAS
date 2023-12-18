@@ -23,6 +23,17 @@
                 <textarea rows="6" name="description" class="form-control" id="description" required></textarea>
               </div>
               <div class="form-group">
+                <label for="">Sertifikasi </label>
+                <div class="form-group">
+                  <button class="form-group" data-aut-id="opp_certificate0">SHM - Sertifikat Hak Milik</button>
+                  <button class="form-group" data-aut-id="opp_certificate1">HGB - Hak Guna Bangun</button>
+                  <button class="form-group" data-aut-id="opp_certificate2">Lainnya (PPJB, Girik, Adat, dll)</button>
+                </div>
+                <div class="form-group">
+                  <span class="form-group" data-aut-id=""></span>
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="price" class="form-control-label">Harga</label>
                 <input type="number" name="price" class="form-control" id="price" required>
               

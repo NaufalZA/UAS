@@ -91,7 +91,7 @@
               <li class="nav-item">
                 <a href="{{ route('product.index') }}" class="nav-link"> 
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Rumah</p>
+                  <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
