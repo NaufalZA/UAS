@@ -44,14 +44,15 @@ class ProductController extends Controller
             'user_id' => Auth::user()->id,
         ]);
  
-        return back()->with('success', 'Congratulations, your product has been successfully created. Wait until your product is sold');
+        // return back()->with('success', 'Congratulations, your product has been successfully created. Wait until your product is sold');
+        return back()->with('success', 'Selamat, rumah anda berhasil dijual');
     }
  
     public function buy($id){
         $product = Product::findOrFail($id);
  
         if($product->user_id == Auth::user()->id){
-            return back()->with('error', "Purchase failed, you can't buy your own product");
+            return back()->with('error', "Pembelian gagal, anda tidak bisa membeli rumah anda sendiri");
         }
  
         ProductSold::create([

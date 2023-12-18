@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product</h1>
+            <h1>List Rumah</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Product</li>
+              <!-- <li class="breadcrumb-item active">Rumah</li> -->
             </ol>
           </div>
         </div>
@@ -23,10 +23,10 @@
         <div class="container-fluid">
         <div class="row">
         <div class="col-md-4">
-            <div class="d-flex align-items-center justify-content-around">
-            <p class="mb-0">Sort By</p>
+            <div class="align-items-center justify-content-around">
+            <p class="mb-1">Urut Berdasarkan</p>
             <select class="form-control w-75" id="sortBy">
-                <option value=""  {{ request()->sort == '' ? 'selected' : '' }}>Latest</option>
+                <option value=""  {{ request()->sort == '' ? 'selected' : '' }}>Terbaru</option>
                 <option value="asc" {{ request()->sort == 'asc' ? 'selected' : '' }}>Ascending</option>
                 <option value="desc" {{ request()->sort == 'desc' ? 'selected' : '' }}>Descending</option>
             </select>
@@ -51,7 +51,7 @@
                         </small>
                         <p class="mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
                         <h5 class="font-weight-bolder mb-0">
-                            ${{ number_format($product->price, 0, '.', '.') }}
+                            Rp. {{ number_format($product->price, 0, '.', '.') }}
                         </h5>
                         <small>{{ $product->description }}</small>
                         </div>
