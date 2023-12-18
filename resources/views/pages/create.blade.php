@@ -22,21 +22,54 @@
                 <label for="description" class="form-control-label">Deskripsi</label>
                 <textarea rows="6" name="description" class="form-control" id="description" required></textarea>
               </div>
+
               <div class="form-group">
                 <label for="">Sertifikasi </label>
                 <div class="form-group">
-                  <button class="form-group" data-aut-id="opp_certificate0">SHM - Sertifikat Hak Milik</button>
-                  <button class="form-group" data-aut-id="opp_certificate1">HGB - Hak Guna Bangun</button>
-                  <button class="form-group" data-aut-id="opp_certificate2">Lainnya (PPJB, Girik, Adat, dll)</button>
-                </div>
-                <div class="form-group">
-                  <span class="form-group" data-aut-id=""></span>
+                  <style>
+                  .btn-custom {
+                    transition: background-color 0.3s ease;
+                  }
+
+                  .btn-custom:hover, .btn-custom:focus, .btn-custom:active {
+                    background-color: #c8f8f6 !important;
+                    border-color: #002f34 !important;
+                  }
+                  </style>
+                  
+                  <button type="button" class="btn btn-sm btn-outline-light text-dark mr-2 btn-custom">SHM - Sertifikat Hak Milik</button>
+                  <button type="button" class="btn btn-sm btn-outline-light text-dark mr-2 btn-custom">HGB - Hak Guna Bangun</button>
+                  <button type="button" class="btn btn-sm btn-outline-light text-dark mt-2 btn-custom">Lainnya (PPJB, Girik, Adat, dll)</button>
                 </div>
               </div>
+
+              <script>
+              window.onload = function() {
+                var priceInput = document.getElementById('price');
+
+                priceInput.addEventListener('input', function (e) {
+                  var num = e.target.value.replace(/[^\d]/g, '');
+                  e.target.value = num ? parseFloat(num).toLocaleString('id-ID') : '';
+                });
+
+                // Get the form and add a submit event listener
+                var form = priceInput.form;
+                form.addEventListener('submit', function (e) {
+                  // Before submitting the form, format the price back to a plain number
+                  var num = priceInput.value.replace(/[^\d]/g, '');
+                  priceInput.value = num ? parseFloat(num) : '';
+                });
+              };
+              </script>
+
               <div class="form-group">
                 <label for="price" class="form-control-label">Harga</label>
-                <input type="number" name="price" class="form-control" id="price" required>
-              
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                  </div>
+                  <input type="text" name="price" class="form-control" id="price" required>
+                </div>
               </div>
               <div class="form-group">
                 <button class="btn btn-primary">Tambah</button>

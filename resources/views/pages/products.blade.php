@@ -36,14 +36,14 @@
         <div class="row mt-4">
         @if($products->count() > 0)
             @foreach($products as $product)
-            <div class="col-xl-3 col-sm- mb-4">
+            <div class="col-xl-4 col-sm-6 mb-4">
                 <div class="card">
                 <div class="card-header text-center">
-                    <img src="{{ asset('assets/img') }}/{{ $product->image }}" style="height: 150px; width: 100%; object-fit: contain;">
+                    <img src="{{ asset('assets/img') }}/{{ $product->image }}" style="height: 200px; width: 100%; object-fit: contain;">
                 </div>
                 <div class="card-body p-3">
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="numbers">
                         <small class="d-flex align-items-center text-capitalize">
                             <i class="ri-store-2-fill me-1"></i> 
@@ -53,14 +53,16 @@
                         <h5 class="font-weight-bolder mb-0">
                             Rp. {{ number_format($product->price, 0, '.', '.') }}
                         </h5>
-                        <small>{{ $product->description }}</small>
+                        <!-- <small>{{ $product->description }}</small> -->
+                        <!-- <small>{{ nl2br(e($product->description)) }}</small> -->
+                        <small>{!! nl2br(e($product->description)) !!}</small>
                         </div>
                     </div>
-                    <div class="col-4 text-end">
+                    <div class="col-2 text-end">
                         @if(!$product->sold)
-                        <a href="{{ route('product.buy', $product->id) }}" class="btn bg-gradient-primary">Buy</a>
+                        <a href="{{ route('product.buy', $product->id) }}" class="btn bg-gradient-primary">Beli</a>
                         @else
-                        <span class="btn bg-gradient-danger">Sold</span>
+                        <span class="btn bg-gradient-danger">Terjual</span>
                         @endif
                     </div>
                     </div>
@@ -72,7 +74,7 @@
             <div class="col-12">
             <div class="card">
                 <div class="card-body text-center p-3">
-                <h4>Product Not Available</h4>
+                <h4>Rumah Tidak Tersedia</h4>
                 </div>
             </div>
             </div>
