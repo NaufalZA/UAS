@@ -24,23 +24,49 @@
     <div class="row">
       @if($products->count() > 0)
         @foreach($products as $product)
-          <div class="col-xl-3 col-sm-6 mb-4">
+          <div class="col-xl-4 col-sm-6 mb-4">
             <div class="card">
               <div class="card-header text-center">
-                <img src="{{ asset('assets/img') }}/{{ $product->image }}" style="height: 150px; width: 100%; object-fit: contain;">
+                <img src="{{ asset('assets/img') }}/{{ $product->image }}" style="height: 200px; width: 100%; object-fit: contain;">
               </div>
               <div class="card-body p-3">
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-12">
                     <div class="numbers">
                       <p class="text-sm mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
                       <h5 class="font-weight-bolder mb-0">
                         Rp. {{ number_format($product->price, 0, '.', '.') }}
                       </h5>
-                      <small>{{ $product->description }}</small>
+                      <small class="description">
+                          {!! nl2br(e($product->description)) !!}
+                      </small>
+
+                      <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
+
+                      <script>
+                        var description = document.querySelector('.description');
+                        var readMore = document.querySelector('.read-more');
+
+                        var fullDescription = description.innerHTML;
+                        var shortDescription = fullDescription.slice(0, 250) + '...';
+
+                        description.innerHTML = shortDescription;
+
+                        readMore.addEventListener('click', function (e) {
+                          e.preventDefault();
+
+                          if (description.innerHTML === shortDescription) {
+                            description.innerHTML = fullDescription;
+                            readMore.innerHTML = 'Lebih Sedikit';
+                          } else {
+                            description.innerHTML = shortDescription;
+                            readMore.innerHTML = 'Lebih Banyak';
+                          }
+                        });
+                      </script>
                     </div>
                   </div>
-                  <div class="col-4 text-end">
+                  <div class="col-12 d-flex justify-content-end">
                     @if($product->sold)
                       <span class="btn bg-gradient-danger">Terjual</span>
                     @else

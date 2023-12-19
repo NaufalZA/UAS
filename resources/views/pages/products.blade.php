@@ -50,12 +50,19 @@
                             <span>{{ $product->seller->name }}</span>
                         </small>
                         <p class="mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
+                        <span class="ms-2">({{ $product->sertifikasi }})</span>
                         <h5 class="font-weight-bolder mb-0">
                             Rp. {{ number_format($product->price, 0, '.', '.') }}
                         </h5>
+                        <!-- <small>{{ $product->description }}</small> -->
+                        <!-- <small>{{ nl2br(e($product->description)) }}</small> -->
+                        <small>{!! nl2br(e($product->description)) !!}</small>
+                        </div>
+=======
                         <small class="description">
                           {!! nl2br(e($product->description)) !!}
                         </small>
+
                         <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
 
                         <script>
@@ -79,8 +86,7 @@
                             }
                           });
                         </script>
-                        <!-- <small>{!! nl2br(e($product->description)) !!}</small> -->
-                        </div>
+>>>>>>> Stashed changes
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       @if(!$product->sold)
