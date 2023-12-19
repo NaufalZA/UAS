@@ -53,20 +53,42 @@
                         <h5 class="font-weight-bolder mb-0">
                             Rp. {{ number_format($product->price, 0, '.', '.') }}
                         </h5>
-                        <!-- <small>{{ $product->description }}</small> -->
-                        <!-- <small>{{ nl2br(e($product->description)) }}</small> -->
-                        <small>{!! nl2br(e($product->description)) !!}</small>
+                        <small class="description">
+                          {!! nl2br(e($product->description)) !!}
+                        </small>
+                        <a href="#" class="read-more">Read More</a>
+
+                        <script>
+                          var description = document.querySelector('.description');
+                          var readMore = document.querySelector('.read-more');
+
+                          var fullDescription = description.innerHTML;
+                          var shortDescription = fullDescription.slice(0, 250) + '...';
+
+                          description.innerHTML = shortDescription;
+
+                          readMore.addEventListener('click', function (e) {
+                            e.preventDefault();
+
+                            if (description.innerHTML === shortDescription) {
+                              description.innerHTML = fullDescription;
+                              readMore.innerHTML = 'Lebih Banyak';
+                            } else {
+                              description.innerHTML = shortDescription;
+                              readMore.innerHTML = 'Lebih Sedikit';
+                            }
+                          });
+                        </script>
+                        <!-- <small>{!! nl2br(e($product->description)) !!}</small> -->
                         </div>
                     </div>
-                    <div class="col-2 text-end">
-                        @if(!$product->sold)
-                        <a href="{{ route('product.buy', $product->id) }}" class="btn bg-gradient-primary">Beli</a>
-                        @else
-                        <span class="btn bg-gradient-danger">Terjual</span>
-                        @endif
+                    <div class="col-12 d-flex justify-content-end">
+                      @if(!$product->sold)
+                      <a href="{{ route('product.buy', $product->id) }}" class="btn bg-gradient-primary ">Beli</a>
+                      @else
+                      <span class="btn bg-gradient-danger">Terjual</span>
+                      @endif
                     </div>
-                    </div>
-                </div>
                 </div>
             </div>
             @endforeach
