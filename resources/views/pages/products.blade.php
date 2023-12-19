@@ -56,7 +56,7 @@
                         <small class="description">
                           {!! nl2br(e($product->description)) !!}
                         </small>
-                        <a href="#" class="read-more">Lebih Banyak</a>
+                        <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
 
                         <script>
                           var description = document.querySelector('.description');
