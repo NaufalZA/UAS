@@ -56,7 +56,7 @@
                         <small class="description">
                           {!! nl2br(e($product->description)) !!}
                         </small>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="#" class="read-more">Lebih Banyak</a>
 
                         <script>
                           var description = document.querySelector('.description');
@@ -72,10 +72,10 @@
 
                             if (description.innerHTML === shortDescription) {
                               description.innerHTML = fullDescription;
-                              readMore.innerHTML = 'Lebih Banyak';
+                              readMore.innerHTML = 'Lebih Sedikit';
                             } else {
                               description.innerHTML = shortDescription;
-                              readMore.innerHTML = 'Lebih Sedikit';
+                              readMore.innerHTML = 'Lebih Banyak';
                             }
                           });
                         </script>
