@@ -81,7 +81,6 @@
                         </script>
                         <!-- <small>{!! nl2br(e($product->description)) !!}</small> -->
                         </div>
-                    </div>
                     <div class="col-12 d-flex justify-content-end">
                       @if(!$product->sold)
                       <a href="{{ route('product.buy', $product->id) }}" class="btn bg-gradient-primary ">Beli</a>
