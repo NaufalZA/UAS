@@ -43,6 +43,8 @@
 
                       <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
 
+                      <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary mt-3">Edit</a>
+
                       <script>
                         var description = document.querySelector('.description');
                         var readMore = document.querySelector('.read-more');

@@ -64,9 +64,38 @@ class ProductController extends Controller
             'sold' => true,
         ]);
  
-        return back()->with('success', 'Congratulations, the product has been purchased successfully');
+        return back()->with('success', 'Selamat, anda berhasil membeli rumah ini');
     }
-     
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return back()->with('error', 'Rumah tidak ditemukan');
+        }
+
+        return view('pages.edit', compact('product'));
+    }
+    // public function edit()
+    // {
+    //     return view('pages.edit');
+    // }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return back()->with('error', 'Rumah tidak ditemukan');
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+
+        return back()->with('success', 'Rumah berhasil diupdate');
+    }
     public function my(){
         $products = Product::where('user_id', Auth::user()->id)->orderBy('sold', 'asc')->get();
         return view('pages.my', compact('products'));

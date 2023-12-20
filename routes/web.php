@@ -21,7 +21,10 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/create', [ProductController::class, 'create'])->name('create');
         Route::post('/create', [ProductController::class, 'store'])->name('store');
         Route::get('/buy/{id}', [ProductController::class, 'buy'])->name('buy');
-       Route::get('/my', [ProductController::class, 'my'])->name('my');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+        // Route::get('/edit', [ProductController::class, 'edit'])->name('edit');
+        Route::put('/edit/{id}', [ProductController::class, 'update'])->name('update');
+        Route::get('/my', [ProductController::class, 'my'])->name('my');
     });
  
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function(){
