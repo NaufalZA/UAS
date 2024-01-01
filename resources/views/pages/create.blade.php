@@ -6,7 +6,7 @@
       <div class="col-12 col-lg-6">
         <div class="card"> 
           <div class="card-body p-3">
-            <h5>Tambah Rumah</h5> 
+            <h5>Jual Rumah</h5> 
             <hr>
             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
@@ -72,7 +72,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <button class="btn btn-primary">Tambah</button>
+                <button class="btn btn-primary">Jual</button>
               </div>
             </form>
           </div>
