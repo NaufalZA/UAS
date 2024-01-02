@@ -6,7 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
  
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
  
 Route::get('/login', [AuthController::class, 'login'])->name('login');
