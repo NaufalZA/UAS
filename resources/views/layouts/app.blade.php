@@ -112,14 +112,12 @@
                   <p>History</p>
                 </a>
               </li>
-              @if(Auth::user()->role == 'admin')
               <li class="nav-item">
                 <a href="{{ route('profile.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Profil</p>
                 </a>
               </li>
-              @endif
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
