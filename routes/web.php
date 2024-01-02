@@ -15,7 +15,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'postRegister'])->name('register.store');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
  
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' =>['auth','CekLevel:Admin']], function(){
     Route::group(['prefix' => 'product', 'as' => 'product.'], function(){
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
@@ -29,4 +29,13 @@ Route::group(['middleware' => 'auth'], function(){
         Route::get('/purchase', [ProfileController::class, 'purchase'])->name('purchase');
     });
  
+});
+
+Route::group(['middleware' =>['auth','CekLevel:User']], function(){
+    Route::group(['prefix' => 'product', 'as' => 'product.'], function(){
+        Route::get('/', [ProductController::class, 'index'])->name('index');
+        Route::get('/create', [ProductController::class, 'create'])->name('create');
+        Route::post('/create', [ProductController::class, 'store'])->name('store');
+        Route::get('/buy/{id}', [ProductController::class, 'buy'])->name('buy');
+    });
 });
