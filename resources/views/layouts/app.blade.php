@@ -89,34 +89,34 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('product.index') }}" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Home</p>
-                </a>
+                  <a href="{{ route('product.index') }}" class="{{ Request::is('product') ? 'nav-link active' : 'nav-link' }}"> 
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Home</p>
+                  </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('product.create') }}" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jual Rumah</p>
-                </a>
+                  <a href="{{ route('product.create') }}" class="{{ Request::is('product/create') ? 'nav-link active' : 'nav-link' }}"> 
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Jual Rumah</p>
+                  </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('product.my') }}" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Rumah Saya</p>
-                </a>
+                  <a href="{{ route('product.my') }}" class="{{ Request::is('product/my') ? 'nav-link active' : 'nav-link' }}"> 
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Rumah Saya</p>
+                  </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('profile.purchase') }}" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>History</p>
-                </a>
+                  <a href="{{ route('profile.purchase') }}" class="{{ Request::is('profile/purchase') ? 'nav-link active' : 'nav-link' }}"> 
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>History</p>
+                  </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('profile.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Profil</p>
-                </a>
+                  <a href="{{ route('profile.index') }}" class="{{ Request::is('profile') ? 'nav-link active' : 'nav-link' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Profil</p>
+                  </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">

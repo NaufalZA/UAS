@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::post('/create', [ProductController::class, 'store'])->name('store');
         Route::get('/buy/{id}', [ProductController::class, 'buy'])->name('buy');
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
-        // Route::get('/edit', [ProductController::class, 'edit'])->name('edit');
+        Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('destroy');
         Route::put('/edit/{id}', [ProductController::class, 'update'])->name('update');
         Route::get('/my', [ProductController::class, 'my'])->name('my');
     });

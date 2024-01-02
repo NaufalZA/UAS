@@ -75,10 +75,13 @@ class ProductController extends Controller
 
         return view('pages.edit', compact('product'));
     }
-    // public function edit()
-    // {
-    //     return view('pages.edit');
-    // }
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return back()->with('success', 'Rumah berhasil dihapus');
+    }
 
     public function update(Request $request, $id)
     {
