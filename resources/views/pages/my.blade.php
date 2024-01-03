@@ -65,9 +65,10 @@
                       }
                     });
                   </script>
+                  <p>{{ $product->sertifikasi }}</p>
                 </div>
               </div>
-              <div class="col-12 d-flex justify-content-between mt-3">
+              <div class="col-12 d-flex justify-content-between">
                 <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary">Edit</a>
 
                 <form action="{{ route('product.destroy', $product->id) }}" method="POST">

@@ -27,9 +27,6 @@ class ProductController extends Controller
     }
  
     public function store(Request $request){
-        if($request->price < 1){
-            return back()->with('error', 'Minimum price is $. 1');
-        }
          
         $file = $request->file('image');
         $fileName = 'product_' . time() . '.' . $file->extension();
@@ -39,12 +36,12 @@ class ProductController extends Controller
             'name' => $request->name,
             'image' => $fileName,
             'description' => $request->description,
+            'sertifikasi' => $request->sertifikasi,
             'price' => $request->price,
             'sold' => "0",
             'user_id' => Auth::user()->id,
         ]);
  
-        // return back()->with('success', 'Congratulations, your product has been successfully created. Wait until your product is sold');
         return back()->with('success', 'Selamat, rumah anda berhasil dijual');
     }
  

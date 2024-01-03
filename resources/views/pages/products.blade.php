@@ -57,7 +57,6 @@
                   <small class="description">
                     {!! nl2br(e($product->description)) !!}
                   </small>
-
                   <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
 
                   <script>
@@ -81,6 +80,8 @@
                       }
                     });
                   </script>
+                  <p>{{ $product->sertifikasi }}</p>
+
                 </div>
                 <div class="col-12 d-flex justify-content-end">
                   @if(!$product->sold)

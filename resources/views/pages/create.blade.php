@@ -12,20 +12,21 @@
               @csrf
               <div class="form-group">
                 <label for="name" class="form-control-label">Judul</label>
-                <input type="text" name="name" class="form-control" id="name" required>
+                <input type="text" name="name" class="form-control" id="name" >
               </div>
               <div class="form-group">
                 <label for="image" class="form-control-label">Gambar</label>
-                <input type="file" name="image" class="form-control form-control-file" id="image" accept=".jpg, .png, .svg" required>
+                <input type="file" name="image" class="form-control form-control-file" id="image" accept=".jpg, .png, .svg" >
               </div>
               <div class="form-group">
                 <label for="description" class="form-control-label">Deskripsi</label>
-                <textarea rows="6" name="description" class="form-control" id="description" required></textarea>
+                <textarea rows="6" name="description" class="form-control" id="description" ></textarea>
               </div>
 
               <div class="form-group">
                 <label for="">Sertifikasi </label>
-                <div class="form-group">
+                <div class="form-group" id="sertifikasi">
+
                   <style>
                   .btn-custom {
                     transition: background-color 0.3s ease;
@@ -42,7 +43,7 @@
                   <button type="button" class="btn btn-sm btn-outline-light text-dark mt-2 btn-custom">Lainnya (PPJB, Girik, Adat, dll)</button>
                 </div>
               </div>
-
+              
               <script>
               window.onload = function() {
                 var priceInput = document.getElementById('price');
@@ -68,7 +69,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                   </div>
-                  <input type="text" name="price" class="form-control" id="price" required>
+                  <input type="text" name="price" class="form-control" id="price" >
                 </div>
               </div>
               <div class="form-group">
