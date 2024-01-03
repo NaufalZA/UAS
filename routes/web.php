@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function(){
         Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('destroy');
         Route::put('/edit/{id}', [ProductController::class, 'update'])->name('update');
         Route::get('/my', [ProductController::class, 'my'])->name('my');
+        Route::get('/control', [ProductController::class, 'control'])->name('control');
     });
  
     Route::group(['prefix' => 'profile', 'as' => 'profile.'], function(){

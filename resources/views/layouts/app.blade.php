@@ -124,6 +124,12 @@
                   <p>Logout</p>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a href="{{ route('product.control') }}" class="{{ Request::is('control') ? 'nav-link active' : 'nav-link' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Kontrol Iklan</p>
+                  </a>
+              </li>
             </ul>
           </li>
         </ul>
