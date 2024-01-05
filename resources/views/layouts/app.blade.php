@@ -118,6 +118,14 @@
                     <p>Profil</p>
                   </a>
               </li>
+              @if(auth()->user()->level == "Admin")
+              <li class="nav-item">
+                  <a href="{{ route('approve') }}" class="{{ Request::is('approve') ? 'nav-link active' : 'nav-link' }}">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Approve</p>
+                  </a>
+              </li>
+              @endif
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

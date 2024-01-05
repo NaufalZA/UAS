@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index(Request $request){
-        $products = Product::orderBy('sold', 'ASC');
+        $products = Product::orderBy('sold', 'ASC')->where('approve', 0);
         if($request->sort == 'asc'){
             $products =  $products->orderBy('name', 'ASC')->get();
         }else if($request->sort == 'desc'){
@@ -40,6 +40,7 @@ class ProductController extends Controller
             'price' => $request->price,
             'sold' => "0",
             'user_id' => Auth::user()->id,
+            'approve' => "0",
         ]);
  
         return back()->with('success', 'Selamat, rumah anda berhasil dijual');
@@ -99,5 +100,27 @@ class ProductController extends Controller
     public function my(){
         $products = Product::where('user_id', Auth::user()->id)->orderBy('sold', 'asc')->get();
         return view('pages.my', compact('products'));
+    }
+    
+    public function Admin_approve(){
+        $products = Product::where('approve', 0)->orderBy('sold', 'asc')->get();
+        return view('pages.approve', compact('products'));
+    }
+
+    public function approve($id){
+        $product = Product::findOrFail($id);
+        $product->update([
+            'approve' => 1,
+        ]);
+ 
+        return back()->with('success', 'Selamat, rumah anda berhasil diSetujui');
+    }
+    public function reject($id){
+        $product = Product::findOrFail($id);
+        $product->update([
+            'approve' => 2,
+        ]);
+ 
+        return back()->with('error', 'Maaf, rumah anda tidak diSetujui');
     }
 }
