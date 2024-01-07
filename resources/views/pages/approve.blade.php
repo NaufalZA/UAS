@@ -71,11 +71,11 @@
               <div class="col-12 d-flex gap-2">
                 <form action="{{ route('product.approve', $product->id) }}" method="POST">
                   @csrf
-                  <button type="submit" class="btn btn-success">Disetujui</button>
+                  <button type="submit" class="btn btn-success">Terima</button>
                 </form>
                 <form action="{{ route('product.reject', $product->id) }}" method="POST">
                   @csrf
-                  <button type="submit" class="btn btn-danger">Ditolak</button>
+                  <button type="submit" class="btn btn-danger">Tolak</button>
                 </form>
               </div>
             </div>

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index(Request $request){
-        $products = Product::orderBy('sold', 'ASC')->where('approve', 0);
+        $products = Product::orderBy('sold', 'ASC')->where('approve', 1);
         if($request->sort == 'asc'){
             $products =  $products->orderBy('name', 'ASC')->get();
         }else if($request->sort == 'desc'){
