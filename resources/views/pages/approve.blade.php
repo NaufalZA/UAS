@@ -45,25 +45,31 @@
                   <a href="#" class="read-more" style="font-size: 0.8em;">Lebih Banyak</a>
 
                   <script>
-                    var description = document.querySelector('.description');
-                    var readMore = document.querySelector('.read-more');
+                    window.onload = function() {
+                      var descriptions = document.querySelectorAll('.description');
+                      var readMores = document.querySelectorAll('.read-more');
 
-                    var fullDescription = description.innerHTML;
-                    var shortDescription = fullDescription.slice(0, 250) + '...';
+                      for (let i = 0; i < descriptions.length; i++) {
+                        let fullDescription = descriptions[i].innerHTML;
+                        let shortDescription = fullDescription.slice(0, 250) + '...';
+                        let isExpanded = false;
 
-                    description.innerHTML = shortDescription;
+                        descriptions[i].innerHTML = shortDescription;
 
-                    readMore.addEventListener('click', function (e) {
-                      e.preventDefault();
-
-                      if (description.innerHTML === shortDescription) {
-                        description.innerHTML = fullDescription;
-                        readMore.innerHTML = 'Lebih Sedikit';
-                      } else {
-                        description.innerHTML = shortDescription;
-                        readMore.innerHTML = 'Lebih Banyak';
+                        readMores[i].addEventListener('click', function(e) {
+                          e.preventDefault();
+                          if (!isExpanded) {
+                            descriptions[i].innerHTML = fullDescription;
+                            readMores[i].textContent = 'Read less';
+                            isExpanded = true;
+                          } else {
+                            descriptions[i].innerHTML = shortDescription;
+                            readMores[i].textContent = 'Read more';
+                            isExpanded = false;
+                          }
+                        });
                       }
-                    });
+                    }
                   </script>
                   <p>{{ $product->sertifikasi }}</p>
                 </div>
@@ -87,8 +93,8 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body text-center p-3">
-            <h4>Kamu Belum Memiliki Rumah Yang Dijual</h4>
-            <a href="{{ route('product.create') }}" class="btn bg-gradient-primary">Tambah Rumah</a>
+            <h4>Tidak Ada Rumah Yang Sedang Menunggu Approval</h4>
+            <!-- <a href="{{ route('product.create') }}" class="btn bg-gradient-primary">Tambah Rumah</a> -->
           </div>
         </div>
       </div>

@@ -27,9 +27,6 @@ class ProductController extends Controller
     }
  
     public function store(Request $request){
-        if($request->price < 1){
-            return back()->with('error', 'Minimum price is $. 1');
-        }
          
         $file = $request->file('image');
         $fileName = 'product_' . time() . '.' . $file->extension();
@@ -39,12 +36,13 @@ class ProductController extends Controller
             'name' => $request->name,
             'image' => $fileName,
             'description' => $request->description,
+            'sertifikasi' => $request->sertifikasi,
             'price' => $request->price,
             'sold' => "0",
             'user_id' => Auth::user()->id,
+            'approve' => "0",
         ]);
  
-        // return back()->with('success', 'Congratulations, your product has been successfully created. Wait until your product is sold');
         return back()->with('success', 'Selamat, rumah anda berhasil dijual');
     }
  
@@ -64,11 +62,65 @@ class ProductController extends Controller
             'sold' => true,
         ]);
  
-        return back()->with('success', 'Congratulations, the product has been purchased successfully');
+        return back()->with('success', 'Selamat, anda berhasil membeli rumah ini');
     }
-     
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return back()->with('error', 'Rumah tidak ditemukan');
+        }
+
+        return view('pages.edit', compact('product'));
+    }
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+
+        return back()->with('success', 'Rumah berhasil dihapus');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return back()->with('error', 'Rumah tidak ditemukan');
+        }
+
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price
+        ]);
+
+        return back()->with('success', 'Rumah berhasil diupdate');
+    }
     public function my(){
         $products = Product::where('user_id', Auth::user()->id)->orderBy('sold', 'asc')->get();
         return view('pages.my', compact('products'));
+    }
+    
+    public function Admin_approve(){
+        $products = Product::where('approve', 0)->orderBy('sold', 'asc')->get();
+        return view('pages.approve', compact('products'));
+    }
+
+    public function approve($id){
+        $product = Product::findOrFail($id);
+        $product->update([
+            'approve' => 1,
+        ]);
+ 
+        return back()->with('success', 'Selamat, rumah anda berhasil diSetujui');
+    }
+    public function reject($id){
+        $product = Product::findOrFail($id);
+        $product->update([
+            'approve' => 2,
+        ]);
+ 
+        return back()->with('error', 'Maaf, rumah anda tidak diSetujui');
     }
 }
