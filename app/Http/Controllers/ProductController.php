@@ -10,7 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function index(Request $request){
+<<<<<<< Updated upstream
         $products = Product::orderBy('sold', 'ASC');
+=======
+        $products = Product::orderBy('sold', 'ASC')->where('approve', 1);
+>>>>>>> Stashed changes
         if($request->sort == 'asc'){
             $products =  $products->orderBy('name', 'ASC')->get();
         }else if($request->sort == 'desc'){
