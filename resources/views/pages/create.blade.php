@@ -11,7 +11,7 @@
             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-                <label for="name" class="form-control-label">Title</label>
+                <label for="name" class="form-control-label">Judul Iklan</label>
                 <input type="text" name="name" class="form-control" id="name" >
               </div>
               <div class="form-group">
@@ -23,7 +23,7 @@
                 <textarea rows="6" name="description" class="form-control" id="description" ></textarea>
               </div>
 
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="">Sertifikasi </label>
                 <div class="form-group" id="sertifikasi">
 
@@ -42,7 +42,7 @@
                   <button type="button" class="btn btn-sm btn-outline-light text-dark mr-2 btn-custom">HGB - Hak Guna Bangun</button>
                   <button type="button" class="btn btn-sm btn-outline-light text-dark mt-2 btn-custom">Lainnya (PPJB, Girik, Adat, dll)</button>
                 </div>
-              </div>
+              </div> -->
               
               <script>
               window.onload = function() {

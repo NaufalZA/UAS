@@ -87,8 +87,8 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body text-center p-3">
-            <h4>Kamu Belum Memiliki Rumah Yang Dijual</h4>
-            <a href="{{ route('product.create') }}" class="btn bg-gradient-primary">Tambah Rumah</a>
+            <h4>Tidak Ada Rumah Yang Sedang Menunggu Approval</h4>
+            <!-- <a href="{{ route('product.create') }}" class="btn bg-gradient-primary">Tambah Rumah</a> -->
           </div>
         </div>
       </div>
