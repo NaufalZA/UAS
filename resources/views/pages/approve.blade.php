@@ -74,14 +74,14 @@
                   <p>{{ $product->sertifikasi }}</p>
                 </div>
               </div>
-              <div class="col-12 d-flex gap-2">
+              <div class="col-12 d-flex justify-content-end">
+                <form action="{{ route('product.reject', $product->id) }}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-danger mr-2">Tolak</button>
+                </form>
                 <form action="{{ route('product.approve', $product->id) }}" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-success">Terima</button>
-                </form>
-                <form action="{{ route('product.reject', $product->id) }}" method="POST">
-                  @csrf
-                  <button type="submit" class="btn btn-danger">Tolak</button>
                 </form>
               </div>
             </div>
