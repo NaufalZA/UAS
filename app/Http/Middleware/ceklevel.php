@@ -15,6 +15,6 @@ class ceklevel
             return $next($request);
         }
 
-        return redirect('/home'); 
+        return redirect('/'); 
     }
 }
