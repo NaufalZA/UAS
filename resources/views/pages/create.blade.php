@@ -11,13 +11,10 @@
             <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
-<<<<<<< Updated upstream
-                <label for="name" class="form-control-label">Judul</label>
-                <input type="text" name="name" class="form-control" id="name" required>
-=======
+
                 <label for="name" class="form-control-label">Title</label>
-                <input type="text" name="name" class="form-control" id="name" >
->>>>>>> Stashed changes
+                <input type="text" name="name" class="form-control" id="name" required>
+
               </div>
               <div class="form-group">
                 <label for="image" class="form-control-label">Gambar</label>
