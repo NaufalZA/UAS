@@ -34,6 +34,10 @@
             <div class="row">
               <div class="col-12">
                 <div class="numbers">
+                  <small class="d-flex align-items-center text-capitalize">
+                    <i class="ri-store-2-fill me-1"></i>
+                    <span>{{ $product->seller->name }}</span>
+                  </small>
                   <p class="text-sm mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
                   <h5 class="font-weight-bolder mb-0">
                     Rp. {{ number_format($product->price, 0, '.', '.') }}
@@ -74,14 +78,14 @@
                   <p>{{ $product->sertifikasi }}</p>
                 </div>
               </div>
-              <div class="col-12 d-flex gap-2">
+              <div class="col-12 d-flex justify-content-end">
+                <form action="{{ route('product.reject', $product->id) }}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-danger mr-2">Tolak</button>
+                </form>
                 <form action="{{ route('product.approve', $product->id) }}" method="POST">
                   @csrf
                   <button type="submit" class="btn btn-success">Terima</button>
-                </form>
-                <form action="{{ route('product.reject', $product->id) }}" method="POST">
-                  @csrf
-                  <button type="submit" class="btn btn-danger">Tolak</button>
                 </form>
               </div>
             </div>
