@@ -34,6 +34,10 @@
             <div class="row">
               <div class="col-12">
                 <div class="numbers">
+                  <small class="d-flex align-items-center text-capitalize">
+                    <i class="ri-store-2-fill me-1"></i>
+                    <span>{{ $product->seller->name }}</span>
+                  </small>
                   <p class="text-sm mb-0 text-capitalize font-weight-bold">{{ $product->name }}</p>
                   <h5 class="font-weight-bolder mb-0">
                     Rp. {{ number_format($product->price, 0, '.', '.') }}
